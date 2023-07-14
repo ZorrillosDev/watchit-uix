@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import { styled, Box, BoxProps, Typography } from "@mui/material";
+import { styled, Box, BoxProps } from "@mui/material";
 import Button from "../../atoms/Button";
-import { ChevronLeft, ChevronRight, Search } from "@mui/icons-material";
+import { ChevronLeft, Add } from "@mui/icons-material";
+import ChannelItem  from "../../atoms/ChannelItem";
 
 export type MobileMenuProps = {
   title: string,
@@ -11,25 +12,58 @@ export type MobileMenuProps = {
 
 export const ChannelsMenu: FC<MobileMenuProps> = (props) : JSX.Element => {
   return (
-      <MobileHeaderWrapper>
-        <Box sx={{ display: 'flex' }}>
-          <Button variant={'flat'} icon={<ChevronLeft />} onClick={props.onBack} backgroundColor={'transparent'} />
-          <Button variant={'flat'} icon={<ChevronRight />} onClick={props.onForward} backgroundColor={'transparent'} />
-        </Box>
-        <Typography variant={'h4'} sx={{ color: '#D1D2D3' }}>{props.title}</Typography>
-        <Button variant={'flat'} icon={<Search />} onClick={props.onForward} backgroundColor={'transparent'} />
-      </MobileHeaderWrapper>
+      <ChannelMenuWrapper>
+        <ChannelItemWrapper>
+          <ChannelItem
+            innerLetter='austin'
+            size={50}
+            innerLetterSize={20}
+            selected={true}
+            borderWidth={3}
+            onClick={() => console.log('clicked channel item')}
+          />
+
+          <ChannelItem
+            innerLetter='Joseph'
+            size={50}
+            innerLetterSize={20}
+            selected={false}
+            borderWidth={3}
+            onClick={() => console.log('clicked channel item')}
+          />
+
+          <ChannelItem
+            innerLetter='Mario'
+            size={50}
+            innerLetterSize={20}
+            selected={false}
+            borderWidth={3}
+            onClick={() => console.log('clicked channel item')}
+          />
+        </ChannelItemWrapper>
+        <Button variant={'flat'} icon={<Add />} onClick={props.onForward} backgroundColor={'transparent'} />
+
+        
+      </ChannelMenuWrapper>
   )
 }
 
-export const MobileHeaderWrapper = styled(Box)<BoxProps>(() => ({
+export const ChannelMenuWrapper = styled(Box)<BoxProps>(() => ({
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'space-between',
-  height: '65px',
+  height: '100%',
   backgroundColor: '#1A1C20',
-  padding: '0 0.5rem'
+  padding: '0.8rem 0.2rem',
+  width:'100%'
+}))
+
+export const ChannelItemWrapper = styled(Box)<BoxProps>(() => ({
+  display: 'flex',
+  flexDirection:'column',
+  justifyContent:'center',
+  rowGap:'5px'
 }))
 
 export default ChannelsMenu
