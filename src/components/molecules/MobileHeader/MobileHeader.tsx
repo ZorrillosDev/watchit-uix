@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { styled, Box, BoxProps, Typography } from "@mui/material";
-import Button from "../../atoms/Button";
+import Button from "@atoms/Button";
 import { ChevronLeft, ChevronRight, Search } from "@mui/icons-material";
 
 export type MobileMenuProps = {

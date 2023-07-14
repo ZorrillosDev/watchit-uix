@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { styled, Box, BoxProps } from "@mui/material";
-import { MobileMenuItem, MobileMenuItemProps } from "../../atoms/MobileMenuItem";
+import { MobileMenuItem, MobileMenuItemProps } from "@atoms/MobileMenuItem";
 
 export type MobileMenuProps = {
   items: MobileMenuItemProps[]

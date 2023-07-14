@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { styled, Box, BoxProps } from "@mui/material";
 import { MenuItem, MenuItemProps } from "../../atoms/MenuItem";
-import Logo from "../../atoms/Logo";
-import Button from "../../atoms/Button";
+import Logo  from "@atoms/Logo";
+import Button from "@atoms/Button";
 import {IconMenu} from "@tabler/icons";
 
 export type MenuProps = {

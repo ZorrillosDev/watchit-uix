@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "5.0",
     "outDir": "./dist",
     "target": "es2017",
     "module": "es2015",
@@ -38,6 +39,12 @@
       "@components/*": [
         "src/components/*"
       ],
+      "@atoms/*": [
+        "src/components/atoms/*"
+      ],
+      "@molecules/*": [
+        "src/components/molecules/*"
+      ]
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

@@ -5,7 +5,7 @@ import {IconMenu} from "@tabler/icons";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: "Watchit Molecules/ MobileHeader",
+    title: "Watchit Molecules/ ChannelsMenu",
     component: ChannelsMenu,
 } as ComponentMeta<typeof ChannelsMenu>;
 
