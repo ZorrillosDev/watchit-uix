@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import {styled, Box, BoxProps, Typography, TypographyProps} from "@mui/material";
+import { styled, Box, BoxProps, Typography, TypographyProps } from "@mui/material";
 import ProgressBar from "../../atoms/ProgressBar";
 import { Button } from "../../atoms/index";
 import { PlayArrow } from "@mui/icons-material";
@@ -15,8 +15,8 @@ export type PosterProps = {
   onClick?: React.MouseEventHandler<HTMLDivElement>
   onPlayClick?: React.MouseEventHandler<HTMLButtonElement>
   size?: {
-    width: number,
-    height: number
+    width?: string,
+    height?: string
   }
 }
 

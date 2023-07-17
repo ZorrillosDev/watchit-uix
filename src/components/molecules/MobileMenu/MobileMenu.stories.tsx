@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import MobileMenu from "./MobileMenu";
 import {IconMenu} from "@tabler/icons";

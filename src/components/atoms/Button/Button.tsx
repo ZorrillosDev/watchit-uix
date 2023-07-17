@@ -6,8 +6,14 @@ type ButtonVariant = 'primary' | 'secondary' | 'flat'
 export type ButtonProps = {
   variant: ButtonVariant
   icon?: JSX.Element
+  borderRadius?: string
+  border?: string
+  padding?: string
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   backgroundColor?: string;
+  width?: string
+  height?: string
+  margin?: string
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = (props) : JSX.Element => {
@@ -20,7 +26,15 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = (props) : JSX.Element 
   return (
     <MuiButton
       onClick={props.onClick} variant={getButtonVariant(props.variant)}
-      sx={{ padding: props.children ? '0.3rem 1rem' : '0.3rem 0.5rem', backgroundColor: props.backgroundColor }}
+      sx={{  //padding: props.children ? '0.3rem 1rem' : '0.3rem 0.5rem',
+             backgroundColor: props.backgroundColor,
+             border:props.border,
+             borderRadius: props.borderRadius,
+             padding: props.padding,
+             height: props.height,
+             width: props.width,
+             margin: props.margin
+      }}
     >
       <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
         {

@@ -1,21 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import ChannelsMenu from "./ChannelsMenu";
-import { Box } from "@mui/material";
+import ChannelManageDesktop from "./ChannelManageDesktop";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: "Watchit Molecules/ ChannelsMenu",
-    component: ChannelsMenu,
-} as ComponentMeta<typeof ChannelsMenu>;
+    title: "Integration Components/ ChannelManageDesktop",
+    component: ChannelManageDesktop,
+} as ComponentMeta<typeof ChannelManageDesktop>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof ChannelsMenu> = (args) => 
-<Box sx={{ width:'80px' }}>
-  <ChannelsMenu {...args}/>;
-</Box>
+const Template: ComponentStory<typeof ChannelManageDesktop> = (args) => <ChannelManageDesktop {...args}/>;
+
 export const ChannelItemTest = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-ChannelItemTest.args = {
-  title: 'Dashboard'
-}
+ChannelItemTest.args = {}
