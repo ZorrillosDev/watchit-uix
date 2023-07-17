@@ -7,11 +7,12 @@ export type MobileMenuProps = {
   title: string,
   onBack?: () => void
   onForward?: () => void
+  isActive?: boolean
 }
 
 export const MobileHeader: FC<MobileMenuProps> = (props) : JSX.Element => {
   return (
-      <MobileHeaderWrapper>
+      <MobileHeaderWrapper active={props.isActive}>
         <Box sx={{ display: 'flex' }}>
           <Button variant={'flat'} icon={<ChevronLeft />} onClick={props.onBack} backgroundColor={'transparent'} />
           <Button variant={'flat'} icon={<ChevronRight />} onClick={props.onForward} backgroundColor={'transparent'} />
@@ -22,13 +23,13 @@ export const MobileHeader: FC<MobileMenuProps> = (props) : JSX.Element => {
   )
 }
 
-export const MobileHeaderWrapper = styled(Box)<BoxProps>(() => ({
+export const MobileHeaderWrapper = styled(Box)<BoxProps & { active?: boolean }>((props) => ({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
   height: '65px',
-  backgroundColor: '#1A1C20',
+  backgroundColor: props.active ? '#212328' : '#1A1C20',
   padding: '0 0.5rem'
 }))
 
