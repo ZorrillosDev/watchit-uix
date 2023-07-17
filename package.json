@@ -56,6 +56,7 @@
   "dependencies": {
     "@cfaester/enzyme-adapter-react-18": "^0.6.0",
     "@emotion/styled": "^11.10.5",
+    "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.0",
     "@mui/styled-engine-sc": "^5.11.0",
@@ -67,12 +68,15 @@
     "i": "^0.3.7",
     "jest-environment-jsdom": "^29.4.0",
     "jest-watch-typeahead": "^2.2.2",
+    "material-ui": "^0.20.2",
     "npm": "^9.3.1",
     "path": "^0.12.7",
     "react-app-polyfill": "^2.0.0",
+    "react-dom": "^18.2.0",
     "storybook-addon-material-ui": "^0.9.0-alpha.24",
     "styled-components": "^5.3.6",
-    "ts-jest": "^29.0.5"
+    "ts-jest": "^29.0.5",
+    "webpack": "^5.88.1"
   },
   "resolutions": {
     "@storybook/react-docgen-typescript-plugin": "npm:react-docgen-typescript-plugin@1.0.2"
