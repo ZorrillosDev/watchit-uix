@@ -3,9 +3,9 @@ import {
   styled,
   Box,
   BoxProps,
-  Typography,
-  TypographyProps
-} from "@mui/material";
+  Typography
+} from '@mui/material'
+import { withTheme } from '../../../hoc/withTheme'
 
 export type ProfileInfoProps = {
   icon: JSX.Element
@@ -17,10 +17,19 @@ export type ProfileInfoProps = {
 export const ProfileInfo: FC<ProfileInfoProps> = (props) : JSX.Element => {
 
   return (
-      <ProfileInfoWrapper onClick={props.onClick} data-testid={'profile-info-wrapper'}>
+      <ProfileInfoWrapper onClick={props.onClick} data-testid='profile-info-wrapper'>
         <ProfileInfoIcon>{props.icon}</ProfileInfoIcon>
-        <ProfileInfoSubTitle>{props.subTitle}</ProfileInfoSubTitle>
-        <ProfileInfoTitle>{props.title}</ProfileInfoTitle>
+          <Typography 
+            variant='text12regular' color='grey.600' 
+            sx={{marginTop:'7px'}}
+          >
+            {props.subTitle}
+          </Typography>
+          <Typography 
+            variant='text14regular' sx={{ marginTop:'7px' }}
+          >
+            {props.title}
+          </Typography>
       </ProfileInfoWrapper>
   )
 }
@@ -35,7 +44,7 @@ export const ProfileInfoWrapper = styled(Box)<BoxProps>(() => ({
   backgroundColor: '#1A1C20',
   border: '1px solid rgba(255,255,255,0.1)',
   borderRadius: '10px',
-  maxWidth: '80px',
+  width: '100%',
   minHeight: '80px'
 }))
 
@@ -48,21 +57,10 @@ export const ProfileInfoIcon = styled(Box)<BoxProps>(() => ({
   svg: {
     width: '100%',
     height: 'auto',
+    minWidth: '25px',
+    minHeight: '25px',
     color: '#D1D2D3'
   }
 }))
 
-export const ProfileInfoTitle = styled(Typography)<TypographyProps>(() => ({
-  fontSize: '14px',
-  fontWeight: 500,
-  color: '#D1D2D3'
-}))
-
-export const ProfileInfoSubTitle = styled(Typography)<TypographyProps>(() => ({
-  fontSize: '12px',
-  fontWeight: 500,
-  color: '#515C67',
-  padding: '0.25rem 0'
-}))
-
-export default ProfileInfo
+export default withTheme<ProfileInfoProps> (ProfileInfo)

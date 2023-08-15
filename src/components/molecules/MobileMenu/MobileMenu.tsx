@@ -1,6 +1,7 @@
-import React, { FC } from "react";
-import { styled, Box, BoxProps } from "@mui/material";
-import { MobileMenuItem, MobileMenuItemProps } from "../../atoms/MobileMenuItem";
+import React, { FC } from 'react'
+import { styled, Box, BoxProps } from '@mui/material'
+import { MobileMenuItem, MobileMenuItemProps } from '../../atoms/MobileMenuItem'
+import { withTheme } from '../../../hoc/withTheme'
 
 export type MobileMenuProps = {
   items: MobileMenuItemProps[]
@@ -8,7 +9,7 @@ export type MobileMenuProps = {
   onItemChange?: (id: string) => void
 }
 
-export const MobileMenu: FC<MobileMenuProps> = (props) : JSX.Element => {
+export const MobileMenu: FC<MobileMenuProps> = ( props ) : JSX.Element => {
   return (
       <MobileMenuWrapper>
         {
@@ -31,4 +32,4 @@ export const MobileMenuWrapper = styled(Box)<BoxProps>(() => ({
   backgroundColor: '#1A1C20'
 }))
 
-export default MobileMenu
+export default withTheme<MobileMenuProps>(MobileMenu)

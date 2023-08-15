@@ -1,5 +1,6 @@
-import React, { FC } from "react";
-import {Box, BoxProps, styled} from "@mui/material";
+import React, { FC } from 'react'
+import { Box, BoxProps, styled } from '@mui/material'
+import { withTheme } from '../../../hoc/withTheme'
 
 export type LogoProps = {
   size?: number
@@ -30,4 +31,4 @@ const LogoWrapper = styled(Box)<BoxProps>(() => ({
   justifyContent: 'center'
 }))
 
-export default Logo
+export default withTheme<LogoProps>(Logo)

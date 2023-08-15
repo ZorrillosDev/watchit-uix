@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 import {
   styled,
   Box,
   BoxProps,
-  Typography,
-  TypographyProps
-} from "@mui/material";
+  Typography
+} from '@mui/material'
+import { withTheme } from '../../../hoc/withTheme'
 
 export type MobileMenuItemProps = {
   id: string
@@ -17,9 +17,17 @@ export type MobileMenuItemProps = {
 
 export const MobileMenuItem: FC<MobileMenuItemProps> = (props) : JSX.Element => {
   return (
-      <MobileMenuItemWrapper onClick={() => props?.onClick?.(props.id)} data-testid={'mobile-menu-item-wrapper'}>
+      <MobileMenuItemWrapper 
+        onClick={() => props?.onClick?.(props.id)} 
+        data-testid='mobile-menu-item-wrapper'
+      >
         <MobileMenuItemIcon active={props.active}>{props.icon}</MobileMenuItemIcon>
-        <MobileMenuItemText active={props.active}>{props.title}</MobileMenuItemText>
+        <Typography 
+            variant='text10bold'
+            color={`${!props.active && 'grey.600'}`}
+          >
+          {props.title}
+        </Typography>
       </MobileMenuItemWrapper>
   )
 }
@@ -45,10 +53,4 @@ export const MobileMenuItemIcon = styled(Box)<BoxProps & { active?: boolean }>((
   }
 }))
 
-export const MobileMenuItemText = styled(Typography)<TypographyProps & { active?: boolean }>((props) => ({
-  fontSize: '10px',
-  fontWeight: 500,
-  color: props.active ? '#D1D2D3' : 'rgba(209,210,211, 0.6)'
-}))
-
-export default MobileMenuItem
+export default withTheme<MobileMenuItemProps>(MobileMenuItem)

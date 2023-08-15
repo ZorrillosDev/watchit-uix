@@ -1,4 +1,5 @@
 import React from "react";
+import { Box } from "@mui/material";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import ProfileInfo from "./ProfileInfo";
 import {IconClock} from "@tabler/icons";
@@ -11,7 +12,13 @@ export default {
 } as ComponentMeta<typeof ProfileInfo>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof ProfileInfo> = (args) => <ProfileInfo {...args} />;
+const Template: ComponentStory<typeof ProfileInfo> = (args) => {
+  return (
+    <Box width='70px'>
+      <ProfileInfo {...args} />
+    </Box>
+  )
+}
 
 export const ProfileInfoTest = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

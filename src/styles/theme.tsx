@@ -55,6 +55,20 @@ import {
 } from './CONSTANTS'
 import React from 'react'
 import { ComponentsOverrides, PaletteMode } from '@mui/material'
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    text10bold: true;
+    text12bold: true;
+    text14bold: true;
+    text16bold: true;
+    text20bold: true;
+    text25bold: true;
+    text40bold: true;
+    text10regular: true;
+    text12regular: true;
+    text14regular: true;
+  }
+}
 
 /* eslint-disable  @typescript-eslint/consistent-type-assertions */
 
@@ -201,7 +215,7 @@ export const globalOverrides = {
   breakpoints: {
     values: {
       xs: 0,
-      sm: 600,
+      sm: 500,
       md: 960,
       lg: 1280,
       xl: 1920
@@ -356,6 +370,7 @@ export const themeOverrides = (mode: string): object => ({
 export const typography = (mode: string): any => ({
   typography: {
     fontFamily: '\'Roboto\', sans-serif',
+    //fontFamily: 'sansation',
     h6: {
       fontWeight: 500,
       fontSize: '0.75rem',
@@ -401,6 +416,13 @@ export const typography = (mode: string): any => ({
       fontWeight: 400,
       color: Object.is(mode, 'light') ? THEME_COLOR_GREY_500 : THEME_DARK_COLOR_GREY_500
     },
+    poster: {
+      fontSize: '5rem',
+      fontWeight: 'bold',
+      color:'red',
+      background:'yellow',
+     /*  color: Object.is(mode, 'light') ? THEME_COLOR_GREY_500 : THEME_DARK_COLOR_GREY_500 */
+    },
     body1: {
       fontSize: '0.875rem',
       fontWeight: 400,
@@ -411,7 +433,57 @@ export const typography = (mode: string): any => ({
       fontWeight: 400,
       lineHeight: '1.5em',
       color: Object.is(mode, 'light') ? THEME_COLOR_GREY_700 : THEME_DARK_COLOR_GREY_700
-    }
+    },
+    text25bold: {
+      fontSize: '25px',
+      fontWeight: 'bold',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
+    text40bold: {
+      fontSize: '40px',
+      fontWeight: 'bold',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
+    text16bold: {
+      fontSize: '16px',
+      fontWeight: 'bold',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
+    text20bold: {
+      fontSize: '20px',
+      fontWeight: 'bold',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
+    text14bold: {
+      fontSize: '14px',
+      fontWeight: 'bold',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
+    text12bold: {
+      fontSize: '12px',
+      fontWeight: 'bold',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
+    text10bold: {
+      fontSize: '10px',
+      fontWeight: 'bold',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
+    text10regular: {
+      fontSize: '10px',
+      fontWeight: 'regular',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
+    text12regular: {
+      fontSize: '12px',
+      fontWeight: 'regular',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
+    text14regular: {
+      fontSize: '14px',
+      fontWeight: 'regular',
+      color: Object.is(mode, 'light') ? THEME_COLOR_GREY_300 : THEME_DARK_COLOR_GREY_900
+    },
   }
 })
 

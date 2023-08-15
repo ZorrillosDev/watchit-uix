@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const ButtonText = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 ButtonText.args = {
-  variant: 'secondary',
+  variant: 'primary',
   children: <span>MANAGE CHANNELS</span>,
   onClick: () => {
     console.log('clicked icon button')

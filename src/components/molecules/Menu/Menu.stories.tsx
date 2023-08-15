@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Menu from "./Menu";
-import {IconMenu} from "@tabler/icons";
+import { IconMenu } from "@tabler/icons";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Menu> = (args) => {
   const handleToggleOpen = () => {
     setIsOpen((open) => !open)
   }
-  return <Menu {...args} onItemChange={setActive} active={active} isOpen={isOpen} onIsOpenChange={handleToggleOpen} />
+  return <Menu {...args} width={'300px'} onItemChange={setActive} active={active} isOpen={isOpen} onIsOpenChange={handleToggleOpen} />
 };
 
 export const ChannelItemTest = Template.bind({});
@@ -26,28 +26,28 @@ ChannelItemTest.args = {
     {
       id: '1',
       icon: <IconMenu />,
-      title: 'Menu 1',
+      title: 'Browse',
       active: false,
       onClick: () => console.log('clicked menu item')
     },
     {
       id: '2',
       icon: <IconMenu />,
-      title: 'Menu 2',
+      title: 'Recent',
       active: false,
       onClick: () => console.log('clicked menu item')
     },
     {
       id: '3',
       icon: <IconMenu />,
-      title: 'Menu 3',
+      title: 'Coming Soon',
       active: false,
       onClick: () => console.log('clicked menu item')
     },
     {
       id: '4',
       icon: <IconMenu />,
-      title: 'Menu 4',
+      title: 'Watch List',
       active: false,
       onClick: () => console.log('clicked menu item')
     }

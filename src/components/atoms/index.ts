@@ -1,5 +1,11 @@
-export { default as Button } from './Button';
-export { default as ChannelItem } from './ChannelItem';
-export { default as Logo } from './Logo';
-export { default as ProgressBar } from './ProgressBar';
 export * from './Icons';
+export { default as Button } from './Button'
+export { default as CustomButton } from './CustomButton'
+export { default as ChannelItem } from './ChannelItem'
+export { default as Logo } from './Logo'
+export { default as MenuItem } from './MenuItem'
+export { default as MobileMenuItem } from './MobileMenuItem'
+export { default as ProfileInfo } from './ProfileInfo'
+export { default as ProgressBar } from './ProgressBar'
+export { default as RoundProgress } from './RoundProgress'
+export { default as Avatar } from './Avatar'

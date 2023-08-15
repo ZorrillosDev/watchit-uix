@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 import {
   styled,
   Box,
   BoxProps,
-  Typography,
-  TypographyProps
-} from "@mui/material";
+  Typography
+} from '@mui/material'
+import { withTheme } from '../../../hoc/withTheme'
 
 export type MenuItemProps = {
   id: string
@@ -21,7 +21,12 @@ export const MenuItem: FC<MenuItemProps> = (props) : JSX.Element => {
       <MenuItemWrapper onClick={() => props.onClick?.(props.id)}>
         <MenuContentWrapper>
           <MenuItemIcon active={props.active}>{props.icon}</MenuItemIcon>
-          <MenuItemText active={props.active}>{props.title}</MenuItemText>
+          <Typography 
+            variant='text16bold' color='#D1D2D3'
+            sx={{ marginTop:'7px' }}
+          >
+            {props.title}
+          </Typography>
         </MenuContentWrapper>
         {
           props.active ? (
@@ -40,7 +45,7 @@ export const MenuItemWrapper = styled(Box)<BoxProps>(() => ({
   cursor: 'pointer',
   width: '100%',
   position: 'relative',
-  padding: '0 1rem'
+  padding: '1rem 0'
 }))
 
 export const MenuContentWrapper = styled(Box)<BoxProps>(() => ({
@@ -74,10 +79,4 @@ export const MenuItemIcon = styled(Box)<BoxProps & { active?: boolean }>(({activ
   }
 }))
 
-export const MenuItemText = styled(Typography)<TypographyProps & { active?: boolean }>(({active}) => ({
-  fontSize: '10px',
-  fontWeight: 500,
-  color: active ? '#D1D2D3' : 'rgba(209,210,211, 0.6)'
-}))
-
-export default MenuItem
+export default withTheme<MenuItemProps>(MenuItem)

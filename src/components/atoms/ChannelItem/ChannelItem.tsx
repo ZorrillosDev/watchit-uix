@@ -1,11 +1,12 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 import {
   styled,
   Box,
   BoxProps,
   Typography,
   TypographyProps
-} from "@mui/material";
+} from '@mui/material'
+import { withTheme } from '../../../hoc/withTheme'
 
 export type ChannelItemProps = {
   innerLetter: string
@@ -14,16 +15,17 @@ export type ChannelItemProps = {
   label?: string
   size?: number
   borderWidth?: number
+  labelLetterSize?: string
   onClick?: () => void
 }
 
 export const ChannelItem: FC<ChannelItemProps> = (props) : JSX.Element => {
 
   return (
-    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'} sx={{ cursor: 'pointer' }}>
+    <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' sx={{ cursor: 'pointer' }}>
       <ChannelItemWrapper
         onClick={props.onClick} selected={!!props.selected}
-        data-testid={'channel-item-wrapper'}
+        data-testid='channel-item-wrapper'
         sx={{
           padding: props.borderWidth ? `${props.borderWidth}px` : '5px',
           width: `${props.size ?? 100}px`,
@@ -31,8 +33,8 @@ export const ChannelItem: FC<ChannelItemProps> = (props) : JSX.Element => {
         }}
       >
         <ChannelItemContent
-          display={'flex'} alignItems={'center'} justifyContent={'center'}
-          data-testid={'channel-item-content'}
+          display='flex' alignItems='center' justifyContent='center'
+          data-testid='channel-item-content'
           sx={{
             borderWidth: props.borderWidth ? `${props.borderWidth}px` : '5px',
             width: `calc(100% - ${props.borderWidth ?? 5}px)`,
@@ -45,7 +47,9 @@ export const ChannelItem: FC<ChannelItemProps> = (props) : JSX.Element => {
       </ChannelItemWrapper>
       {
         props.label ? (
-          <ChannelItemText variant={'body1'}>{props.label}</ChannelItemText>
+          <ChannelItemText fontSize={props.labelLetterSize} variant='body1'>
+            {props.label}
+          </ChannelItemText>
         ) : <></>
       }
     </Box>
@@ -54,10 +58,11 @@ export const ChannelItem: FC<ChannelItemProps> = (props) : JSX.Element => {
 
 export const ChannelItemWrapper = styled(Box)<BoxProps & { selected: boolean }>((props) => ({
   backgroundColor: props.selected ? 'rgba(209,210,211,1)' : 'transparent',
-  borderRadius: '19px',
+  borderRadius: '13px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  color: '#212328',
   '&:hover': {
     backgroundColor: 'rgba(209,210,211,0.5)'
   },
@@ -65,7 +70,7 @@ export const ChannelItemWrapper = styled(Box)<BoxProps & { selected: boolean }>(
 
 export const ChannelItemContent = styled(Box)<BoxProps>(() => ({
   backgroundColor: '#D1D2D3',
-  borderRadius: '15px',
+  borderRadius: '10px',
   border: '5px solid #1A1C20',
   display: 'flex',
   alignItems: 'center',
@@ -74,8 +79,8 @@ export const ChannelItemContent = styled(Box)<BoxProps>(() => ({
   fontWeight: 500
 }))
 
-export const ChannelItemText = styled(Typography)<TypographyProps>(() => ({
-  fontSize: '1rem',
+export const ChannelItemText = styled(Typography)<TypographyProps & { fontSize?:string }>((props) => ({
+  fontSize: props.fontSize,
   fontWeight: 500,
   color: '#D1D2D3',
   textTransform: 'uppercase',
@@ -83,4 +88,4 @@ export const ChannelItemText = styled(Typography)<TypographyProps>(() => ({
   maxWidth: '100%'
 }))
 
-export default ChannelItem
+export default withTheme<ChannelItemProps>(ChannelItem)

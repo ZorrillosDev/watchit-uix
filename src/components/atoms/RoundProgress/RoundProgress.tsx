@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 import {
     Typography,
     styled,
@@ -6,7 +6,8 @@ import {
     BoxProps,
     CircularProgress,
     CircularProgressProps
-} from "@mui/material";
+} from '@mui/material'
+import { withTheme } from '../../../hoc/withTheme'
 
 export type RoundProgressProps = {
   percentage?: number
@@ -29,12 +30,12 @@ export const RoundProgress: FC<RoundProgressProps> = (props) : JSX.Element => {
           size={props.size}
           barColor={mainColor}
           sx={{zIndex:2}}
-          variant={"determinate"}
+          variant="determinate"
           value={props.percentage}/>
       <RoundProgressBackground
           size={props.size}
           barColor={props.progressBackgroundColor ?? '#81ba83'}
-          variant={"determinate"}
+          variant="determinate"
           value={100}/>
       <RoundProgressTextWrapper
           textColor={props.textColor ?? mainColor}>
@@ -85,4 +86,4 @@ const RoundProgressBackground = styled(CircularProgress,{
     }
 }))
 
-export default RoundProgress
+export default withTheme<RoundProgressProps>(RoundProgress)
