@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import {styled, Box, BoxProps, Typography, TypographyProps} from "@mui/material";
+import { styled, Box, BoxProps, Typography, TypographyProps } from "@mui/material";
 import ProgressBar from "../../atoms/ProgressBar";
 import { Button } from "../../atoms/index";
 import { PlayArrow } from "@mui/icons-material";
@@ -15,8 +15,8 @@ export type PosterProps = {
   onClick?: React.MouseEventHandler<HTMLDivElement>
   onPlayClick?: React.MouseEventHandler<HTMLButtonElement>
   size?: {
-    width: number,
-    height: number
+    width?: string,
+    height?: string
   }
 }
 
@@ -38,7 +38,7 @@ export const Poster: FC<PosterProps> = (props) : JSX.Element => {
           <PosterTitle variant={'h4'} sx={{ marginBottom: '0' }}>
             { props.year }
           </PosterTitle>
-          <Button variant={'primary'} icon={<PlayArrow />} onClick={props.onPlayClick} data-testid={'play-button'} />
+          <Button width="50px" variant={'primary'} icon={<PlayArrow />} onClick={props.onPlayClick} data-testid={'play-button'} />
         </Box>
         <PosterTitle variant={'h4'} className={'hover-show'}>
           { props.title }
